@@ -1,0 +1,59 @@
+h1 {
+    color: bisque;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.number {
+    color: aqua;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.txt {
+   color: aliceblue; 
+}
+
+.Tar {
+    margin-top: 1pc;
+    width: 30pc;
+    display: flex;
+    align-items: center;
+}
+
+.Tar:hover {
+    background-color: rgba(189, 189, 189, 0.26);
+}
+
+.foto {
+    width: 6pc;
+    border-radius: 1pc;
+}
+
+.hijo1 {
+    margin-left: 11px;
+    display: block;
+}
+
+.hijo2 {
+    padding-left: 25px;
+    display: block;
+}
+
+.mar {
+    margin: 5px 0;
+}
+
+.I {
+    position: absolute;
+}
+
+.pa {
+    margin-top: 41pc;
+}
+
+.ma {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+} 
