@@ -1,15 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Imagen from './Components/Images/Imagen'
-import {Cards} from './Components/Tarjetas/Tarjeta.jsx'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import Image from './Components/Images/Imagen'
+import { CharacterCard } from './Components/Card/CardData'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <Imagen/>
-    <App />
-    <Cards/>
-  </React.StrictMode>
-);
+  <>
+    <Image />
+    <CharacterCard />
+  </>
+)

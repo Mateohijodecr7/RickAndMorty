@@ -1,15 +1,16 @@
+/* eslint-disable no-tabs */
 import React from 'react'
 import { Cards } from '../Tarjetas/Tarjeta'
 
 export const Search = ({ filter, setFilter }) => {
-	const handleInput = ({ target }) => {
-		setFilter(target.value)
-	}
+  const handleInput = ({ target }) => {
+    setFilter(target.value)
+  }
 
-	return (
+  return (
 		<section className='filtrar'>
 			<input
-			    className='boton'
+				className='boton'
 				type='text'
 				placeholder='Search...'
 				name='buscar'
@@ -23,5 +24,5 @@ export const Search = ({ filter, setFilter }) => {
 				Buscar
 			</button>
 		</section>
-	)
+  )
 }
