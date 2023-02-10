@@ -1,5 +1,5 @@
-import React from "react";
-import CardStyles from "./CardStyles.css"
+import React, { useState } from "react";
+import "./CardStyles.css"
 
 export const Cards = () => {
     const Arreglo = [{
@@ -44,28 +44,56 @@ export const Cards = () => {
     "id":20,"name":"Ants in my Eyes Johnson","status":"unknown","species":"Human","type":"Human with ants in his eyes","gender":"Male","origin":{"name":"unknown","url":""},"location":{"name":"Interdimensional Cable","url":"https://rickandmortyapi.com/api/location/6"},"image":"https://rickandmortyapi.com/api/character/avatar/20.jpeg","episode":["https://rickandmortyapi.com/api/episode/8"],"url":"https://rickandmortyapi.com/api/character/20","created":"2017-11-04T22:34:53.659Z"
 }]
 
+const [isOpen, setOpen] = useState(false)
+const [characterInfo, setCharacterInfo] = useState("");
+console.log(isOpen)
+
+const handleOpenModal = (item) => {
+    setOpen(true);
+    setCharacterInfo(item);
+}
 return (<>
     <div className="container">
         <div className="ma">
             {
-                Arreglo.map(item => {
+                Arreglo.map((item) => {
                     return (<>
-                        <div className="Tar">
-                            <div className="hijo1">
+                        <div className="Tar" >
+                            <div className="hijo1" onClick={() => {
+                            handleOpenModal(item)
+                        }}>
                                 <a className="number" href={item.id}><p>{item.id}</p></a>
                                 <img src={item.image}/>
                                 <h1>{item.name}</h1>
-                                <h4 className="txt" href={item.species}><p>{item.species}</p></h4>
-                                <h4 className="txt" href={item.status}><p>{item.status}</p></h4>
-                                <h4 className="txt" href={item.gender}><p>{item.gender}</p></h4>
-                                <h4 className="txt" href={item.location.name}><p>{item.location.name}</p></h4>
+                                <h2 className="txt" href={item.species}><p>{item.species}</p></h2>
+                                <h2 className="txt" href={item.status}><p>{item.status}</p></h2>
+                                <h2 className="txt" href={item.gender}><p>{item.gender}</p></h2>
+                                <h2 className="txt" href={item.location.name}><p>{item.location.name}</p></h2>
                             </div>
                         </div>
                     </>)
-                })
+                }) 
             }
         </div>
     </div>
+    {
+        isOpen && (
+
+        <div className="modal">
+            <button onClick={()=> {
+                setOpen(false)
+            }} className="closeButton">close</button>
+            <img src={characterInfo.image} alt="loading" className="characterImage"/>
+            <div className="informationCharacter">
+
+            <span>{characterInfo.name}</span>
+            <span>{characterInfo.species}</span>
+            <span>{characterInfo.status}</span>
+            <span>{characterInfo.gender}</span>
+            <span>{characterInfo.location.name}</span>
+            </div>
+            </div>
+    )}
     </>
 )
 }
