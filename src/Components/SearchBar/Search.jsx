@@ -1,5 +1,6 @@
 /* eslint-disable no-tabs */
 import React from 'react'
+import { Cards } from '../Tarjetas/Tarjeta'
 
 export const Search = ({ filter, setFilter }) => {
   const handleInput = ({ target }) => {
@@ -16,7 +17,12 @@ export const Search = ({ filter, setFilter }) => {
 				onChange={handleInput}
 				value={filter}
 			/>
-			<button className='boton2'>Buscar</button>
+			<alert ></alert>
+            <button 
+			className='boton2'
+			>
+				Buscar
+			</button>
 		</section>
   )
 }

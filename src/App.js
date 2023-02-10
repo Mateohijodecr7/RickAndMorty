@@ -16,22 +16,26 @@ function App () {
     <div className="container">
       <Search filter={filter} setFilter={setFilter} />
 
-      <section className="lista-personajes">
-        {personjesFiltrados.length > 0
-          ? (
-              personjesFiltrados.map((personaje) => (
-            <Cards key={personaje.id} personaje={personaje} />
-              ))
-            )
-          : (
-          <p className="text">
-            No se encontro personajes con la busqueda{' '}
-            <strong>{filter}</strong>.
-          </p>
-            )}
-      </section>
-    </div>
-  )
+	return (
+		<div className='container'>
+			<Search filter={filter} setFilter={setFilter} />
+	
+			<section className='lista-personajes'>
+				{loading ? (
+					<p>Cargando...</p>
+				) : personjesFiltrados.length > 0 ? (
+					personjesFiltrados.map((item) => (
+						 <li key={item.id}>{item.name}</li>
+					))
+				) : (
+					<p className='text'>
+						No se encontro personajes con la busqueda{' '}
+						<strong>"{filter}"</strong>.
+					</p>
+				)}
+			</section>
+		</div>
+	)
 }
 
 export default App

@@ -40,3 +40,8 @@ body {
 .text {
   color: #fff;
 }
+
+.img {
+  width: 250px;
+  margin-left: -350px;
+}
