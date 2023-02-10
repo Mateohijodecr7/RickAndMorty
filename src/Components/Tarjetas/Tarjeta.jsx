@@ -55,10 +55,10 @@ return (<>
                                 <a className="number" href={item.id}><p>{item.id}</p></a>
                                 <img src={item.image}/>
                                 <h1>{item.name}</h1>
-                                <h2 className="txt" href={item.species}><p>{item.species}</p></h2>
-                                <h2 className="txt" href={item.status}><p>{item.status}</p></h2>
-                                <h2 className="txt" href={item.gender}><p>{item.gender}</p></h2>
-                                <h2 className="txt" href={item.location.name}><p>{item.location.name}</p></h2>
+                                <h4 className="txt" href={item.species}><p>{item.species}</p></h4>
+                                <h4 className="txt" href={item.status}><p>{item.status}</p></h4>
+                                <h4 className="txt" href={item.gender}><p>{item.gender}</p></h4>
+                                <h4 className="txt" href={item.location.name}><p>{item.location.name}</p></h4>
                             </div>
                         </div>
                     </>)

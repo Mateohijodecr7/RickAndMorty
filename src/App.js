@@ -35,8 +35,8 @@ function App() {
 				{loading ? (
 					<p>Cargando...</p>
 				) : personjesFiltrados.length > 0 ? (
-					personjesFiltrados.map((personaje) => (
-						<Cards key={personaje.id} personaje={personaje} />
+					personjesFiltrados.map((item) => (
+						 <li key={item.id}>{item.name}</li>
 					))
 				) : (
 					<p className='text'>

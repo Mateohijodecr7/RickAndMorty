@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "./image.css"
 
 const Imagen = () => {
     return <img
