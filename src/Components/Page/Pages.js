@@ -1,68 +1,62 @@
-import React from "react";
+import React from 'react'
+import './pagination.css'
 
-const Pages = () => {
-  const characters = this.props.contacts;
-  const { currentPage, todosPerPage } = this.state;
-  const indexOfLastTodo = currentPage * todosPerPage;
-  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = characters.slice(indexOfFirstTodo, indexOfLastTodo);
+const Pagination = (props) => {
+  const { currentPage, maxPageLimit, minPageLimit } = props
+  const totalPages = props.response.totalPages - 1
+  const data = props.response.data
 
-
-  const renderTodos = currentTodos.map((character, index) => {
-    return <div className="col-md-2">
-    <img src={character.image} className="img-thumbnail" alt="" />
-    <div className="content">
-      <h6 className="header">{character.name}</h6>
-      <h6 className="header">status: {character.status}</h6>
-      <h6 className="header">species: {character.species}</h6>
-
-    </div>
-  </div>
-  });
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(characters.length / todosPerPage); i++) {
-    pageNumbers.push(i);
+  const pages = []
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(i)
   }
-  const renderPageNumbers = pageNumbers.map(number => {
-    return (
-      <nav aria-label="Page navigation example">
-      <ul className="pagination justify-content-center">
-      <li className="page-link"
-        key={number}
-        id={number}
-        onClick={this.handleClick}
-      >
-        {number}
 
-      </li>
-      </ul>
-      </nav>
-    );
-  });
-return (
-  <nav aria-label="Page navigation example">
-  <div className="container">
-    <div className="row">
-    {renderTodos}
-    </div>
-    </div>
-<ul className="pagination justify-content-center">
-  <li onClick={this.decrement} className="page-link">
-    <a aria-label="Previous">
-      <span aria-hidden="true">&laquo;</span>
-      <span className="sr-only">Previous</span>
-    </a>
-  </li>
-  {renderPageNumbers}
-  <li onClick={this.increment} className="page-link">
-    <a aria-label="Next">
-      <span aria-hidden="true">&raquo;</span>
-      <span className="sr-only">Next</span>
-    </a>
-  </li>
-</ul>
-</nav>
-);
+  const handlePrevClick = () => {
+    props.onPrevClick()
+  }
+
+  const handleNextClick = () => {
+    props.onNextClick()
+  }
+
+  const handlePageClick = (e) => {
+    props.onPageChange()
+  }
+
+  const pageNumbers = pages.map(page => {
+    if (page <= maxPageLimit && page > minPageLimit) {
+      return (
+        <li key={page} id={page} onClick={handlePageClick}
+            className={currentPage === page ? 'active' : null}>
+            {page}
+        </li>
+      )
+    } else {
+      return null
+    }
+  }
+
+  )
+
+  return (
+        <div className="main">
+            <div className="mainData">
+              {renderData(data)}
+
+            </div>
+            <ul className="pageNumbers">
+               <li>
+                   <button onClick={handlePrevClick} disabled={currentPage === pages[0]}>Prev</button>
+               </li>
+               {pageDecremenEllipses}
+                {pageNumbers}
+               {pageIncrementEllipses}
+                <li>
+                   <button onClick={handleNextClick} disabled={currentPage === pages[pages.length - 1]}>Next</button>
+               </li>
+            </ul>
+        </div>
+  )
 }
-}
-export default Pages;
+
+export default Pagination
