@@ -105,9 +105,11 @@ h1 {
 }
 
 .span {
-    margin: 4px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, monospace;
-    color: rgb(107, 106, 106);
-    justify-items: end;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px -60px 5px 0px;
 }
+
 
