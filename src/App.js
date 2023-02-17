@@ -4,36 +4,38 @@ import { Search } from './Components/SearchBar/Search'
 function App () {
   const [personajes] = useState([])
   const [loading] = useState(true)
-  const [filter, setFilter] = useState('')
+  const [filtrar, setFiltrar] = useState('')
 
-  const personjesFiltrados = personajes.filter((personaje) =>
+  const personjesFiltrados = personajes.filtrar((personaje) =>
     personaje.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
   )
   if (loading) return <div>Cargando...</div>
 
-  return (
+  return (<>
+  
     <div className="container">
-      <Search filter={filter} setFilter={setFilter} />
+      <Search filtrar={filtrar} setFiltrar={setFiltrar} />
 			<section className='lista-personajes'>
 				{loading
 				  ? (
-					<p>Cargando...</p>
+					  <p>Cargando...</p>
 				    )
 				  : personjesFiltrados.length > 0
-				    ? (
-				  personjesFiltrados.map((item) => (
-						 <li key={item.id}>{item.name}</li>
-				  ))
-				      )
-				    : (
-					<p className='text'>
+				  ? (
+					  personjesFiltrados.map((item) => (
+						  <li key={item.id}>{item.name}</li>
+						  ))
+						  )
+						  : (
+							  <p className='text'>
 						No se encontro personajes con la busqueda{' '}
-						<strong>"{filter}"</strong>.
+						<strong>"{filtrar}"</strong>.
 					</p>
 				      )}
 			</section>
 		</div>
-    </div>
+		</>
+  </div>
   )
 }
 

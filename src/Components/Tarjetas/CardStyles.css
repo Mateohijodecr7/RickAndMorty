@@ -19,13 +19,18 @@ h1 {
 
 .Tar {
     margin-top: 1pc;
-    width: 30pc;
+    width: 25pc;
     display: flex;
     align-items: center;
+    border: rgb(141, 141, 141);
+    border-style: ridge;
+    border-color: rgb(153, 153, 153);
+    justify-content: center;
 }
 
 .Tar:hover {
-    background-color: rgba(189, 189, 189, 0.26);
+    background-color: rgba(152, 152, 152, 0.26);
+    border-color: rgb(255, 255, 255);
 }
 
 .foto {
@@ -39,13 +44,14 @@ h1 {
 }
 
 .hijo1 {
-    margin-left: 11px;
     display: block;
+    align-items: center;
 }
 
 .hijo2 {
     padding-left: 25px;
     display: block;
+    align-items: center;
 }
 
 .mar {
@@ -62,7 +68,7 @@ h1 {
 
 .ma {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1.6fr 1.5fr;
     justify-items: center;
 } 
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card } from '../Card'
+import { Cards } from '../Tarjetas/Tarjeta.jsx'
 
 export function CharacterCard (name) {
   const [data, setData] = useState({})
@@ -15,10 +15,12 @@ export function CharacterCard (name) {
   return (
     <>
       {data?.results?.map((characterData) => {
-        console.log(characterData)
         return (
           <>
-            <Card {...characterData} />
+           <li key={characterData}>
+    {data.characterData}
+  </li>
+            <Cards {...characterData} />
           </>
         )
       })}

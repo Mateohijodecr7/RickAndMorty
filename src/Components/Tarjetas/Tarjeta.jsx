@@ -81,7 +81,6 @@ export const Cards = () => {
             }} className="closeButton">close</button>
             <img src={characterInfo.image} alt="loading" className="characterImage"/>
             <div className="informationCharacter">
-
             <span className='span'>{characterInfo.name}</span>
             <span className='span'>{characterInfo.species}</span>
             <span className='span'>{characterInfo.status}</span>
@@ -93,3 +92,5 @@ export const Cards = () => {
     </>
   )
 }
+
+export default Cards

@@ -1,27 +1,30 @@
-/* eslint-disable no-tabs */
-import React from 'react'
+import React, { useState } from 'react'
+import './Search.css'
 
-export const Search = (filter, setFilter) => {
-  const handleInput = ({ target }) => {
-    setFilter(target.value)
+function SearchBar () {
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleInputChange = event => {
+    setSearchTerm(event.target.value)
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
   }
 
   return (
-		<section className='filtrar'>
-			<input
-				className='boton'
-				type='text'
-				placeholder='Search...'
-				name='buscar'
-				onChange={handleInput}
-			/>
-            <button
-			className='boton2'
-			>
-				Buscar
-			</button>
-		</section>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="search">Search:</label>
+      <input
+      className='botona'
+        id="search"
+        type="text"
+        value={searchTerm}
+        onChange={handleInputChange}
+      />
+      <button className='search' type="submit">Search</button>
+    </form>
   )
 }
 
-export default Search
+export default SearchBar
